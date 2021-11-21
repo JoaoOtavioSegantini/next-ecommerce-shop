@@ -1,20 +1,21 @@
-const fetchAPI = async () => {
-  const url = 'https://jsonplaceholder.typicode.com/todos'
+import { Product } from '@common/types/products'
+import { ProductConnection } from '../schema'
+import { fetchAPI, normalizeProduct, getAllProductsQuery } from '../utils'
 
-  const res = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-
-  const data = res.json()
-  return { data }
+type ReturnType = {
+  products: ProductConnection
 }
 
-const getAllProducts = async (): Promise<any[]> => {
-  const products = await fetchAPI()
-  return products.data
+const getAllProducts = async (): Promise<Product[]> => {
+  const { data } = await fetchAPI<ReturnType>({
+    query: getAllProductsQuery
+  })
+  const products =
+    data.products.edges.map(({ node: product }) => {
+      return normalizeProduct(product)
+    }) ?? []
+
+  return products
 }
 
 export default getAllProducts
