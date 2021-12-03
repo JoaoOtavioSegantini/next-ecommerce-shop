@@ -4,6 +4,7 @@ import { useKeenSlider } from 'keen-slider/react'
 import cn from 'classnames'
 
 const ProductSlider: FC = ({ children }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const [sliderRef, slider] = useKeenSlider({
