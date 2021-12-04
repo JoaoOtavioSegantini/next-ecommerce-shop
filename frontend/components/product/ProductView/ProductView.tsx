@@ -7,6 +7,7 @@ import { Product } from '@common/types/products'
 import { ProductSlider, Swatch } from '..'
 import { Choices, getVariant } from '../helpers'
 import { useUI } from '@components/ui/context'
+import { useAddItem } from '@common/cart'
 
 interface Props {
   product: Product
@@ -16,17 +17,21 @@ const ProductView: FC<Props> = ({ product }) => {
   const [choices, setChoices] = useState<Choices>({})
   const variant = getVariant(product, choices)
   const { openSidebar } = useUI()
+  const addItem = useAddItem()
 
-  const addToCart = () => {
+  const addToCart = async () => {
     try {
       const item = {
         productId: String(product.id),
-        variantId: variant?.id,
-        variantOptions: variant?.options
+        variantId: String(variant?.id),
+        variantOptions: variant?.options,
+        quantity: 1
       }
 
-      alert(JSON.stringify(item))
+      const output = await addItem(item)
+
       openSidebar()
+
       // eslint-disable-next-line no-empty
     } catch {}
   }

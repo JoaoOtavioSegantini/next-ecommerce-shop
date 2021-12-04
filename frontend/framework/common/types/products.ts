@@ -12,6 +12,11 @@ export interface ProductOption {
 export interface ProductVariant {
   id: string
   name: string
+  sku: string
+  image?: ProductImages
+  requiresShipping: boolean
+  price: number
+  listPrice: number
   options: ProductOption[]
 }
 
