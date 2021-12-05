@@ -8,6 +8,7 @@ export interface Cart {
   id: string
   createdAt: string
   currency: { code: string }
+  completedAt: string
   taxesIncluded: boolean
   // taxes, discounts exluded
   lineItemsSubtotalPrice: number
