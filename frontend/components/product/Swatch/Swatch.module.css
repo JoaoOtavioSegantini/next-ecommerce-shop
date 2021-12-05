@@ -35,3 +35,7 @@
     @apply border-accents-9 border-2;
   }
 }
+
+.sm {
+  @apply h-7;
+}

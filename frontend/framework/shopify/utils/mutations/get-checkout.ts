@@ -1,6 +1,6 @@
 import { checkoutDetailFragment } from '../common'
 
-const getCheckout = `
+const getCheckout = /* GraphQL */ `
 query($checkoutId: ID!){
   node(id: $checkoutId) {
     ... on Checkout {

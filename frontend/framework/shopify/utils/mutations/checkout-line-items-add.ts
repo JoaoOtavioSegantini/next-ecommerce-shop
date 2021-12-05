@@ -1,6 +1,6 @@
 import { checkoutDetailFragment } from '../common'
 
-const checkoutLineItemsAdd = `
+const checkoutLineItemsAdd = /* GraphQL */ `
 mutation(
   $checkoutId: ID!,
   $lineItems: [CheckoutLineItemInput!]! ) {

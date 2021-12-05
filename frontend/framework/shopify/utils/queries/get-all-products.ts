@@ -1,4 +1,4 @@
-const productConnection = `
+const productConnection = /* GraphQL */ `
 pageInfo {
     hasNextPage
     hasPreviousPage
@@ -32,7 +32,7 @@ pageInfo {
       }
     }
   }
-       
+
 `
 
 const getAllProductsQuery = `

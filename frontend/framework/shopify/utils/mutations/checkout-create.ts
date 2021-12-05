@@ -1,6 +1,6 @@
 import { checkoutDetailFragment } from '../common'
 
-const checkoutCreate = `
+const checkoutCreate = /* GraphQL */ `
 mutation checkoutCreate($input: CheckoutCreateInput = {}) {
   checkoutCreate(input: $input) {
     checkoutUserErrors {
